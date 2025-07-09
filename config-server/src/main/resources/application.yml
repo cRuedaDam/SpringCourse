@@ -1,0 +1,22 @@
+spring:
+  .profiles:
+    active: default
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/cRuedaDam/microservice-configs.git
+          default-label: main
+          clone-on-start: true
+
+server:
+  port: 7777
+
+eureka:
+  instance:
+    instance-id: "${spring.application.name}:${random.value}"  # ID único para la instancia Eureka (nombre+random)
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/   # URL donde está corriendo el servidor Eureka local

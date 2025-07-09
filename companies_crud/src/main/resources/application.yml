@@ -1,0 +1,37 @@
+spring:
+  datasource:
+    username: ${db.username}                 # Usuario para la conexión a la base de datos
+    hikari:
+      maximum-pool-size: ${db.maximum-pool-size}        # Tamaño máximo del pool de conexiones (HikariCP)
+      connection-timeout: ${db.connection-timeout}      # Timeout en ms para obtener conexión del pool
+    url: ${db.url}                           # URL para conectar con la DB PostgreSQL local
+    password: ${db.password}                 # Contraseña para la base de datos
+
+  application:
+    name: companies-crud            # Nombre con el que el microservicio se registra en Eureka y aparece en logs
+  profiles:
+    default: default
+  config:
+    import: "optional:configserver:http://localhost:7777"
+
+server:
+  servlet:
+    context-path: /companies-crud   # Prefijo que tendrá tu API
+  port: '8081'                         # Puerto 0 indica que el SO asignará un puerto disponible automáticamente
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG                  # Muestra las consultas SQL que Hibernate ejecuta en consola
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE    # Detalles sobre cómo Hibernate enlaza parámetros en las consultas
+
+eureka:
+  instance:
+    instance-id: "${spring.application.name}:${random.value}"  # ID único para la instancia Eureka (nombre+random)
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/   # URL donde está corriendo el servidor Eureka local
