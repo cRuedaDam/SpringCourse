@@ -13,3 +13,4 @@ services:
       POSTGRES_PASSWORD: 'udemy'
     ports:
       - '5432:5432'
+

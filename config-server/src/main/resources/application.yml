@@ -10,7 +10,27 @@ spring:
           uri: https://github.com/cRuedaDam/microservice-configs.git
           default-label: main
           clone-on-start: true
-
+          username: cRuedaDam
+          password: ${GIT_TOKEN}
+          #CONFIGURACIÓN PARA SSH
+          #ignore-local-ssh-settings: true
+          #host-key-algorithm: ecdsa-sha2-nistp256
+          #host-key: AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=
+          #private-key: |
+           # -----BEGIN EC PRIVATE KEY-----
+           # Proc-Type: 4,ENCRYPTED
+            #DEK-Info: AES-128-CBC,D2D5994C94A9712456801B02E304B066
+            
+          #  tOwTiE+ib8hY33kQDc91f1ZNRww2UuLAPoi40H1iabCNz2hPpKgzdsEpaM6T0NEl
+          #  EuRo6s8NTURWSdLbFB6MgSz9N9Bo4DeJQT6byNYDbpk5nmuwd6Te6iHzIiNwYzFi
+          #  lBPUW8TCbsBVyPbnrGg131WDyxpUqKbOts/e6BWPAuUshvvVn74QMAI1NwJDQlOR
+          #  S8+yP9SmlCfigY7rlsWVCQKvs8Kk9xhD1B+gk9GQVDAv5u2CMhm1DjO1xjBKWTwo
+          #  UfKYp4OJuhgjaJkJlvOzgXRca1+EOcsyvRLvb3C1XOgcYxdo/zD20Q1vSoez1bwn
+          #  BqbJ1dxgDbrwV3Q0WuRTsuSOtk4SUkP5wRAisOpm9D/nGavMpnXNAYuivUW4rmBq
+          #  56xKueIaWfRExuRs3KhP8WE0/dVYveJHF8WdwzMXd+2WGg47B2u6DLRGsUTo61N0
+          # 67GVYg2z8rPuLz4IqKX49Au4v9a6yaQnVa1h3tUJ+A8=
+          #  -----END EC PRIVATE KEY-----
+          # passphrase: Bobo2208.
 server:
   port: 7777
 
