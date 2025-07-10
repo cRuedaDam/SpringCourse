@@ -8,26 +8,26 @@ spring:
     password: ${db.password}                 # Contraseña para la base de datos
 
   application:
-    name: companies-crud            # Nombre con el que el microservicio se registra en Eureka y aparece en logs
+    name: companies-crud                     # Nombre con el que el microservicio se registra en Eureka y aparece en logs
   profiles:
-    default: default
+    default: default                              # A través de este nombre accedemos a la BBDD
   config:
     import: "optional:configserver:http://localhost:7777"
 
 server:
   servlet:
     context-path: /companies-crud   # Prefijo que tendrá tu API
-  port: '8081'                         # Puerto 0 indica que el SO asignará un puerto disponible automáticamente
+  port: '0'                         # Puerto 0 indica que el SO asignará un puerto disponible automáticamente
 
 logging:
   level:
     org:
       hibernate:
-        SQL: DEBUG                  # Muestra las consultas SQL que Hibernate ejecuta en consola
+        SQL: DEBUG                    # Muestra las consultas SQL que Hibernate ejecuta en consola
         type:
           descriptor:
             sql:
-              BasicBinder: TRACE    # Detalles sobre cómo Hibernate enlaza parámetros en las consultas
+              BasicBinder: TRACE      # Detalles sobre cómo Hibernate enlaza parámetros en las consultas
 
 eureka:
   instance:
