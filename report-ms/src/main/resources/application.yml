@@ -9,7 +9,7 @@ spring:
 server:
   servlet:
     context-path: /report-ms           # Prefijo que tendr� tu API
-  port: '0'                            # Puerto 0 indica que el SO asignar� un puerto disponible autom�ticamente
+  port: '7070'                            # Puerto 0 indica que el SO asignar� un puerto disponible autom�ticamente
 
 eureka:
   instance:

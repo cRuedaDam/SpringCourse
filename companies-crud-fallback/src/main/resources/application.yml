@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: companies-crud-fallback           # Nombre con el que el microservicio se registra en Eureka y aparece en logs
+
+server:
+  servlet:
+    context-path: /companies-crud-fallback  # Prefijo que tendrá tu API
+  port: '8787'                              # Puerto 0 indica que el SO asignará un puerto disponible automáticamente
+
+eureka:
+  instance:
+    instance-id: "${spring.application.name}:${random.value}"  # ID único para la instancia Eureka (nombre+random)
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/   # URL donde está corriendo el servidor Eureka local
