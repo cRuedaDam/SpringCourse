@@ -17,7 +17,7 @@ spring:
 server:
   servlet:
     context-path: /companies-crud   # Prefijo que tendrá tu API
-  port: '0'                         # Puerto 0 indica que el SO asignará un puerto disponible automáticamente
+  port: '8081'                         # Puerto 0 indica que el SO asignará un puerto disponible automáticamente
 
 logging:
   level:
