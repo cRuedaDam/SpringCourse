@@ -1,7 +1,6 @@
-package com.debuggeandoideas.companies_crud_fallback;
+package com.cruedadam.companies_crud_fallback;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
