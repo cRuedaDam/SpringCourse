@@ -1,4 +1,4 @@
-package com.cruedadam.companies_crud_fallback;
+package com.debuggeandoideas.companies_crud_fallback;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

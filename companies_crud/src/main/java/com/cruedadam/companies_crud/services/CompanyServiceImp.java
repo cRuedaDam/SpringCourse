@@ -5,6 +5,7 @@ import com.cruedadam.companies_crud.entities.Company;
 import com.cruedadam.companies_crud.entities.Company;
 import com.cruedadam.companies_crud.repositories.CompanyRepo;
 
+import io.micrometer.tracing.Tracer;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,9 +22,19 @@ import java.util.Objects;
 public class CompanyServiceImp implements CompanyService {
 
     private final CompanyRepo companyRepo; // Inyección del repositorio para acceso a datos
+    private final Tracer tracer;
+
 
     @Override
     public Company readByName(String name) {
+        var spam = tracer.nextSpan().name("readByName");
+
+        try (Tracer.SpanInScope spanInScope = this.tracer.withSpan(spam.start())){
+            log.info("Getting company from DB");
+        }finally {
+            spam.end();
+        }
+
         // Busca la compañía por nombre, lanza excepción si no existe
         return this.companyRepo.findByName(name)
                 .orElseThrow(() -> new NoSuchElementException("Company not found"));

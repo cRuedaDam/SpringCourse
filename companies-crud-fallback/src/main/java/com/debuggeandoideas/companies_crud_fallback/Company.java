@@ -1,4 +1,4 @@
-package com.cruedadam.companies_crud_fallback;
+package com.debuggeandoideas.companies_crud_fallback;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

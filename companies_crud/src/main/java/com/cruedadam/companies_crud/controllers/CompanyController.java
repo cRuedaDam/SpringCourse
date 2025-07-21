@@ -3,6 +3,8 @@ package com.cruedadam.companies_crud.controllers;
 import com.cruedadam.companies_crud.entities.Company;
 import com.cruedadam.companies_crud.services.CompanyService;
 
+import io.micrometer.core.annotation.Timed;
+import io.micrometer.observation.annotation.Observed;
 import io.swagger.v3.oas.annotations.Operation; // Para documentar cada endpoint individualmente
 import io.swagger.v3.oas.annotations.tags.Tag; // Para agrupar los endpoints bajo una etiqueta común en Swagger
 
@@ -27,6 +29,8 @@ public class CompanyController {
     // === [ GET ] ===
     @Operation(summary = "Get companies data by name") // Descripción breve en Swagger
     @GetMapping(path = "{name}") // Ruta: /company/{name}
+    @Observed(name = "company.name")
+    @Timed(value = "company.name")
     public ResponseEntity<Company> get(@PathVariable String name){
         log.info("GET: company {}", name);
         return ResponseEntity.ok(this.companyService.readByName(name)); // Llama al servicio para buscar la empresa por nombre
@@ -35,6 +39,8 @@ public class CompanyController {
     // === [ POST ] ===
     @Operation(summary = "Post in DB for a company based in its name")
     @PostMapping
+    @Observed(name = "company.save")
+    @Timed(value = "company.save")
     public ResponseEntity<Company> post(@RequestBody Company company){
         log.info("POST: company {}", company.getName());
         // Guarda la compañía y retorna 201 Created con la URI construida a partir del nombre

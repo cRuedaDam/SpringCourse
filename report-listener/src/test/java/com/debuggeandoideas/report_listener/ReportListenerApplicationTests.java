@@ -1,10 +1,10 @@
-package com.debuggeandoideas.companies_crud_fallback;
+package com.debuggeandoideas.report_listener;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CompaniesCrudFallbackApplicationTests {
+class ReportListenerApplicationTests {
 
 	@Test
 	void contextLoads() {
