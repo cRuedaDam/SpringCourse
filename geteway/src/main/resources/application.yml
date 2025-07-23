@@ -2,7 +2,7 @@ spring:
   application:
     name: geteway           # Nombre del microservicio (as� se registrar� en Eureka)
   profiles:
-    default: eureka-on-cb   # Perfil por defecto: usar� rutas basadas en Eureka
+    default: oauth2
 
 server:
   port: 4040                # Puerto en el que se ejecuta el gateway
