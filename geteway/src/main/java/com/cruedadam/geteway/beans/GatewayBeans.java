@@ -1,4 +1,4 @@
-package com.debuggeandoideas.geteway.beans;
+package com.cruedadam.geteway.beans;
 
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
