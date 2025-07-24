@@ -39,4 +39,4 @@ eureka:
     instance-id: "${spring.application.name}:${random.value}"  # ID único para la instancia Eureka (nombre+random)
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/   # URL donde está corriendo el servidor Eureka local
+      defaultZone: ${EUREKA_URL}   # URL donde está corriendo el servidor Eureka local

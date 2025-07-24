@@ -2,7 +2,6 @@ package com.cruedadam.companies_crud.services;
 
 import com.cruedadam.companies_crud.entities.Category;
 import com.cruedadam.companies_crud.entities.Company;
-import com.cruedadam.companies_crud.entities.Company;
 import com.cruedadam.companies_crud.repositories.CompanyRepo;
 
 import io.micrometer.tracing.Tracer;

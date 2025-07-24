@@ -31,3 +31,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Ignorar tokens.txt (tu archivo con secretos)
+tokens.txt
+
+# Ignorar SpringCourse.git (tu repositorio bare para limpieza)
+SpringCourse.git/
+SpringCourse.git.bfg-report
