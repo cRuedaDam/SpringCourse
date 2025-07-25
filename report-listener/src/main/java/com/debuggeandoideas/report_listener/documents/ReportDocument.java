@@ -1,4 +1,4 @@
-package com.cruedadam.report_listener.documents;
+package com.debuggeandoideas.report_listener.documents;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

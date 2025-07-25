@@ -1,7 +1,7 @@
-package com.cruedadam.report_listener.streams;
+package com.debuggeandoideas.report_listener.streams;
 
-import com.cruedadam.report_listener.documents.ReportDocument;
-import com.cruedadam.report_listener.repositories.ReportRepository;
+import com.debuggeandoideas.report_listener.documents.ReportDocument;
+import com.debuggeandoideas.report_listener.repositories.ReportRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.cruedadam.report_listener;
+package com.debuggeandoideas.report_listener;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

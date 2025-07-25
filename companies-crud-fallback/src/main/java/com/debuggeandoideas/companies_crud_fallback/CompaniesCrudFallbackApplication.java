@@ -1,13 +1,13 @@
-package com.cruedadam.report_listener;
+package com.debuggeandoideas.companies_crud_fallback;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ReportListenerApplication {
+public class CompaniesCrudFallbackApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ReportListenerApplication.class, args);
+		SpringApplication.run(CompaniesCrudFallbackApplication.class, args);
 	}
 
 }

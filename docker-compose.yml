@@ -34,7 +34,7 @@ services:
         KAFKA_BROKER_ID: 1
         KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
         KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
-        KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://msg-broker:9092,PLAINTEXT_INTERNAL://broker:29092
+        KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://msg-broker:9092,PLAINTEXT_INTERNAL://msg-broker:29092
         KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
         KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
         KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
@@ -137,7 +137,7 @@ services:
       depends_on:
         - ms-registry-server
       environment:
-        GIT_TOKEN: #Git ToKEN
+        GIT_TOKEN: ${GIT_TOKEN}
         EUREKA_URL: http://ms-registry-server:8761/eureka/
 
     ms-companies-crud:
@@ -180,5 +180,41 @@ services:
         EUREKA_URL: http://ms-registry-server:8761/eureka/
         CONFIG_SERVER_HOST: 'ms-config-server:7777'
         BROKER_URL: 'msg-broker:9092'
+
+    ms-report-listener:
+      image: ms-report-listener:latest
+      container_name: ms-report-listener
+      restart: always
+      depends_on:
+        - ms-config-server
+        - kafka
+        - mongo-db
+      environment:
+        EUREKA_URL: http://ms-registry-server:8761/eureka/
+        MONGO_HOST: 'mongo-db'
+        BROKER_URL: 'msg-broker:9092'
+
+    ms-auth-service:
+      image: ms-auth-server:latest
+      container_name: ms-auth-service
+      restart: always
+      ports:
+        - "3030:3030"
+      depends_on:
+        - ms-config-server
+      environment:
+        EUREKA_URL: http://ms-registry-server:8761/eureka/
+        CONFIG_SERVER_HOST: 'http://ms-config-server:7777'
+
+    ms-gateway:
+      image: ms-gateway:latest
+      container_name: ms-gateway
+      restart: always
+      ports:
+        - "4040:4040"
+      depends_on:
+        - ms-config-server
+      environment:
+        EUREKA_URL: http://ms-registry-server:8761/eureka/
 
 
